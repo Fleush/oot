@@ -1,0 +1,80 @@
+<link rel="stylesheet" type="text/css" href="ocsstyle.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<script>
+		function popoutRow(elmt) {
+			row = elmt.id;
+			var elements = [ ];
+			elements[0] = document.getElementsByClassName(row)[0].innerHTML;
+			elements[1] = document.getElementsByClassName(row)[1].innerHTML;
+			elements[2] = document.getElementsByClassName(row)[2].innerHTML;
+			window.open("bonjour.html?rest1=" + elements[0] + "&rest2=" + elements[1] + "&rest3=" + elements[2], '_blank', "width=220, height=460"); 
+		}
+		
+		function toggleColor(elmt) {
+		if (elmt.id == "square") {
+			elmt.id = "greensquare";
+		}
+		else if (elmt.id == "greensquare") {
+			elmt.id = "redsquare";
+		}
+		else { elmt.id = "square"; }
+	}
+</script>
+
+<h1>Bingo2020 pre-tourney race</h1>
+
+<h2>Goal: Beat the Fire, Forest and Water Temples. Get 12 different Skulltulas from those three dungeons.</h2>
+<h2>Additionnally, pick a row, column or diagonal of restrictions.</h2>
+<p id="bingorules">Standard bingo rules apply.</p>
+
+<div id="wrap">
+	<div id="pageContent" class="container">
+		<div id="bingoPage">  
+			<div id="results">
+				<table id="bingo">
+							<tr>
+                                <td class="popout" id="tlbr" onclick="popoutRow(this);">TL-BR</td>
+                                <td class="popout" id="col1" onclick="popoutRow(this);">COL1</td>
+                                <td class="popout" id="col2" onclick="popoutRow(this);">COL2</td>
+                                <td class="popout" id="col3" onclick="popoutRow(this);">COL3</td>
+                            </tr>
+                            <tr>
+                                <td class="popout" id="row1" onclick="popoutRow(this);">ROW1</td>
+                                <td class="row1 col1 tlbr" id="square" onclick="toggleColor(this);">No songs in inventory</td>
+                                <td class="row1 col2" id="square" onclick="toggleColor(this);">No damage in dungeons</td>
+                                <td class="row1 col3 bltr" id="square" onclick="toggleColor(this);">69 rupees</td>
+                            </tr>
+                            <tr>
+                                <td class="popout" id="row2" onclick="popoutRow(this);">ROW2</td>
+                                <td class="row2 col1" id="square" onclick="toggleColor(this);">Jump off the watchtower and die</td>
+                                <td class="row2 col2 tlbr bltr" id="square" onclick="toggleColor(this);">Wear Hover Boots in Fire, Forest and Water Temples</td>
+                                <td class="row2 col3" id="square" onclick="toggleColor(this);">No save and quit</td>
+                            </tr>
+                            <tr>
+                                <td class="popout" id="row3" onclick="popoutRow(this);">ROW3</td>
+                                <td class="row3 col1 bltr" id="square" onclick="toggleColor(this);">No Hookshot/Longshot</td>
+                                <td class="row3 col2" id="square" onclick="toggleColor(this);">Cow in House</td>
+                                <td class="row3 col3 tlbr" id="square" onclick="toggleColor(this);">Zora Tunic</td>
+                            </tr>
+                            <tr>
+                                <td class="popout" id="bltr" onclick="popoutRow(this);">BL-TR</td>
+                            </tr>
+                        
+				</table>
+			</div>
+			<div id="about_bingo">
+				<h3>Goal disambiguation</h3>
+				<h4>No songs in inventory</h4>
+				<p>You may not have any song in your inventory at any time.</p>
+				<h4>No damage in dungeons</h4>
+				<p>You may not lose any health while in a dungeon. Is considered a dungeon any instance with a blue warp. You must reset without saving upon taking damage in a dungeon or in a boss room.</p>
+				<h4>Wear Hover Boots in Fire, Forest and Water Temples</h4>
+				<p>You must wear Hover Boots at all times when in Fire, Forest and Water Temples. This includes boss rooms of those dungeons.</p>
+				<h4>No save and quit</h4>
+				<p>Both save+reset and die+save+quit are banned.</p>
+				<h4>No Hookshot/Longshot</h4>
+				<p>You may not have Hookshot or Longshot in your inventory. You may not have Hookshot or Longshot on your B button.</p>
+			</div>
+		</div>
+	</div>
+</div>
