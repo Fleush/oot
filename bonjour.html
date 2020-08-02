@@ -1,0 +1,131 @@
+<style type="text/css">
+    html,
+    body {
+      background: #000;
+      color: #fff;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      font-size: 19px;
+      user-select: none;
+    }
+
+    table {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 0 10px;
+      height: 19%;
+      border-top: 1px #666 solid;
+      box-shadow: inset 0px 0px 50px rgba(0, 0, 0, .6);
+    }
+
+	#square, td,
+    th {
+      user-select: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+	  text-align: center;
+    }
+
+    table.modern td {
+      box-shadow: none;
+    }
+
+    #square:hover, td:hover {
+      background: #001122;
+      cursor: pointer;
+    }
+
+    #greensquare {
+      background: #005511;
+    }
+
+    #greensquare:hover {
+      background: #007722;
+    }
+
+    #redsquare {
+      background: #550011;
+    }
+
+    #redsquare:hover {
+      background: #770022;
+    }
+
+    th {
+      height: 20px;
+      background: #1448B3;
+      box-shadow: inset 0px 0px 50px rgba(0, 0, 0, .6);
+      cursor: default;
+    }
+
+    table.modern th {
+      box-shadow: none;
+    }                                      
+	
+	.rowhead { height: 3%; }
+	.goal { height: 15%; }
+	.rest1, .rest2, .rest3 { height: 10%; }
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<script>
+
+	function getSearchParameters() {
+		var prmstr = window.location.search.substr(1);
+		return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+	}
+
+	function transformToAssocArray( prmstr ) {
+		var params = {};
+		var prmarr = prmstr.split("&");
+		for ( var i = 0; i < prmarr.length; i++) {
+			var tmparr = prmarr[i].split("=");
+			params[tmparr[0]] = tmparr[1];
+		}
+		return params;
+	}
+
+	var params = getSearchParameters();
+	
+	function updateRestrictions() {
+		document.getElementsByClassName('rest1')[0].innerHTML = params.rest1.replace(/%20/g, " ");
+		document.getElementsByClassName('rest2')[0].innerHTML = params.rest2.replace(/%20/g, " ");
+		document.getElementsByClassName('rest3')[0].innerHTML = params.rest3.replace(/%20/g, " ");
+	}
+	
+	function toggleColor(elmt) {
+		if (elmt.id == "square") {
+			elmt.id = "greensquare";
+		}
+		else if (elmt.id == "greensquare") {
+			elmt.id = "redsquare";
+		}
+		else { elmt.id = "square"; }
+	}
+</script>
+<body onload="updateRestrictions()">
+
+	<table>
+		<th class="rowhead">Bingo2020</th>
+		<tr><td class="goal" id="square" onclick="toggleColor(this);">Beat the Fire Temple</td></tr>
+		<tr><td class="goal" id="square"  onclick="toggleColor(this);">Beat the Forest Temple</td></tr>
+		<tr><td class="goal" id="square"  onclick="toggleColor(this);">Beat the Water Temple</td></tr>
+		<tr><td class="goal" id="square"  onclick="toggleColor(this);">12 Different Skulltulas from Fire, Forest or Water Temples</td></tr>
+		<tr><td class="rest1" id="square"  onclick="toggleColor(this);">restriction 1</td></tr>
+		<tr><td class="rest2" id="square"  onclick="toggleColor(this);">restriction 2</td></tr>
+		<tr><td class="rest3" id="square"  onclick="toggleColor(this);">restriction 3</td></tr>
+	</table>
+
+</body>
+
+</html>
