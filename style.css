@@ -26,12 +26,18 @@ h4 {
 	margin-top: 3px;
 }
 
+#hidden {
+	opacity: 0;
+	transition: opacity 2.5s;
+}
+
 .champ {
 	color: rgb(230,230,115);
 }
 
 .screen {
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 .match {
@@ -51,13 +57,26 @@ h4 {
 
 a, a:hover, a:visited {
 	color: rgb(249,33,115);
+	text-decoration: none;
 }
 
 .pink {
 	color: rgb(249,33,115);
 }
 
-.cell {
+.grey {
+	color: rgb(150,150,150);
+}
+
+.time, .name {
 	display: inline;
 	padding: 15px;
+}
+
+td {
+	width: 25%;
+}
+
+.clip {
+	text-align: center;
 }
